@@ -33,9 +33,8 @@ func (k Key) String() string {
 
 /***
 * !!!Important!!!
-* For developer: Make sure to add keyName(the String() value) to comment.
-* So that our go-docs can have the full documentation.
-* See: https://pkg.go.dev/github.com/uber/cadence@v0.19.1/common/service/dynamicconfig#Key
+* For developer: Make sure to add/maintain the comment in the right format: usage, keyName, and default value
+* So that our go-docs can have the full [documentation](https://pkg.go.dev/github.com/uber/cadence@v0.19.1/common/service/dynamicconfig#Key).
 ***/
 const (
 	unknownKey Key = iota
@@ -55,84 +54,84 @@ const (
 	testGetBoolPropertyFilteredByDomainIDKey
 	testGetBoolPropertyFilteredByTaskListInfoKey
 
-	// Usage: key for enable global domain
+	// EnableGlobalDomain is key for enable global domain
 	// KeyName: system.enableGlobalDomain
 	// Default value: false
 	EnableGlobalDomain
-	// Usage: key for enable visibility sampling
+	// EnableVisibilitySampling is key for enable visibility sampling
 	// KeyName: system.enableVisibilitySampling
 	// Default value: TRUE
 	EnableVisibilitySampling
-	// Usage: key for enable read from cadence_visibility.closed_executions_v2
+	// EnableReadFromClosedExecutionV2 is key for enable read from cadence_visibility.closed_executions_v2
 	// KeyName: system.enableReadFromClosedExecutionV2
 	// Default value: FALSE
 	EnableReadFromClosedExecutionV2
-	// Usage: key for how to write to advanced visibility
+	// AdvancedVisibilityWritingMode is key for how to write to advanced visibility
 	// KeyName: system.advancedVisibilityWritingMode
 	// Default value: based on whether or not advanced visibility persistence is configured (common.GetDefaultAdvancedVisibilityWritingMode(isAdvancedVisConfigExist))
 	AdvancedVisibilityWritingMode
-	// Usage: whether emit the shard diff log
+	// EmitShardDiffLog is whether emit the shard diff log
 	// KeyName: history.emitShardDiffLog
 	// Default value: FALSE
 	EmitShardDiffLog
-	// Usage: key for enable read from elastic search
+	// EnableReadVisibilityFromES is key for enable read from elastic search
 	// KeyName: system.enableReadVisibilityFromES
 	// Default value: based on whether or not advanced visibility persistence is configured(isAdvancedVisExistInConfig)
 	EnableReadVisibilityFromES
-	// Usage: config to disable list open/close workflow using filter
+	// DisableListVisibilityByFilter is config to disable list open/close workflow using filter
 	// KeyName: frontend.disableListVisibilityByFilter
 	// Default value: FALSE
 	DisableListVisibilityByFilter
-	// Usage: key for the status of history archival
+	// HistoryArchivalStatus is key for the status of history archival
 	// KeyName: system.historyArchivalStatus
 	// Default value: the value in static config: common.Config.Archival.History.Status
 	HistoryArchivalStatus
-	// Usage: key for enabling reading history from archival store
+	// EnableReadFromHistoryArchival is key for enabling reading history from archival store
 	// KeyName: system.enableReadFromHistoryArchival
 	// Default value: the value in static config: common.Config.Archival.History.EnableRead
 	EnableReadFromHistoryArchival
-	// Usage: key for the status of visibility archival
+	// VisibilityArchivalStatus is key for the status of visibility archival
 	// KeyName: system.visibilityArchivalStatus
 	// Default value: the value in static config: common.Config.Archival.Visibility.Status
 	VisibilityArchivalStatus
-	// Usage: key for enabling reading visibility from archival store
+	// EnableReadFromVisibilityArchival is key for enabling reading visibility from archival store
 	// KeyName: system.enableReadFromVisibilityArchival
 	// Default value: the value in static config: common.Config.Archival.Visibility.EnableRead
 	EnableReadFromVisibilityArchival
-	// Usage: whether enabling DC auto forwarding to active cluster for signal / start / signal with start API if domain is not active
+	// EnableDomainNotActiveAutoForwarding is whether enabling DC auto forwarding to active cluster for signal / start / signal with start API if domain is not active
 	// KeyName: system.enableDomainNotActiveAutoForwarding
 	// Default value: TRUE
 	EnableDomainNotActiveAutoForwarding
-	// Usage: whether enabling graceful failover
+	// EnableGracefulFailover is whether enabling graceful failover
 	// KeyName: system.enableGracefulFailover
 	// Default value: FALSE
 	EnableGracefulFailover
-	// Usage: the largest allowed transaction size to persistence
+	// TransactionSizeLimit is the largest allowed transaction size to persistence
 	// KeyName: system.transactionSizeLimit
 	// Default value:  14 * 1024 * 1024 (common.DefaultTransactionSizeLimit)
 	TransactionSizeLimit
-	// Usage: rate for injecting random error in persistence
+	// PersistenceErrorInjectionRate is rate for injecting random error in persistence
 	// KeyName: system.persistenceErrorInjectionRate
 	// Default value: 0
 	PersistenceErrorInjectionRate
-	// Usage: the maximum allowed retention days for domain
+	// MaxRetentionDays is the maximum allowed retention days for domain
 	// KeyName: system.maxRetentionDays
 	// Default value:  30(domain.DefaultMaxWorkflowRetentionInDays)
 	MaxRetentionDays
-	// Usage: the minimal allowed retention days for domain
+	// MinRetentionDays is the minimal allowed retention days for domain
 	// KeyName: system.minRetentionDays
 	// Default value: domain.MinRetentionDays
 	MinRetentionDays
-	// Usage: the minimal allowed decision start to close timeout in seconds
+	// MaxDecisionStartToCloseSeconds is the minimal allowed decision start to close timeout in seconds
 	// KeyName: system.maxDecisionStartToCloseSeconds
 	// Default value: 240
 	MaxDecisionStartToCloseSeconds
-	// Usage: the key to disallow query for a domain
+	// DisallowQuery is the key to disallow query for a domain
 	// KeyName: system.disallowQuery
 	// Default value: FALSE
 	DisallowQuery
-	// Usage: for enabling debugging components, logs and metrics
-	// KeyName: system.enableDebugMode	 
+	// EnableDebugMode is for enabling debugging components, logs and metrics
+	// KeyName: system.enableDebugMode
 	// Default value: false
 	EnableDebugMode
 
@@ -148,7 +147,6 @@ const (
 	HistoryCountLimitError
 	// HistoryCountLimitWarn is the per workflow execution history event count limit for warning
 	HistoryCountLimitWarn
-
 	// MaxIDLengthLimit is the length limit for various IDs, including: Domain, TaskList, WorkflowID, ActivityID, TimerID,
 	// WorkflowType, ActivityType, SignalName, MarkerName, ErrorReason/FailureReason/CancelCause, Identity, RequestID
 	MaxIDLengthLimit
